@@ -7,8 +7,6 @@
  3. Utwórz w lokalnym folderze folder data/
  4. Przekopiuj do folderu data/ pliki 
 
- <br/>
-
 
     ![alt text](files.png)
 
