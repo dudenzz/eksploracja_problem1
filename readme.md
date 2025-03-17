@@ -6,6 +6,8 @@
  2. Pobierz zbiór danych ze strony https://www.kaggle.com/datasets/grouplens/movielens-20m-dataset?resource=download 
  3. Utwórz w lokalnym folderze folder data/
  4. Przekopiuj do folderu data/ pliki 
+
+ 
     ![alt text](files.png)
 
 ### Zadanie
