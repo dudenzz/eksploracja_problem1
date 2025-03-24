@@ -12,7 +12,8 @@
 
 ### Zadanie
 
- 1. Utwórz system oceniający film. 
- 2. Zadaniem systemu jest przewidzenie tego, jak użytkownik oceni film. 
- 3. Zapoznaj się z notatnikiem judge.ipynb
- 4. Dostarcz rozwiązanie w postaci pliku analogicznego do judge.py
+ 1. Zapoznaj się z notatnikiem judge.ipynb
+ 2. W katalogu src/ znajdziesz plik system111333.py. Zmodyfikuj go tak, aby nazwa zawierała twój numer indeksu. W treści tego pliku powinna znajdować się implementacja twojego systemu oceniającego.
+ 3. Umieść rozwiązanie w katalogu, do którego dostęp znajdziesz na stronie kursu (tylko plik z systemem).
+
+
