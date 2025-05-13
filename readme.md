@@ -20,7 +20,7 @@
 ### Wyniki
 Final
 
-    Nazwa	Score	RMSE	MAE
+Lp.    Nazwa	Score	RMSE	MAE
 1	SVD Recommender System by 151756	3482	0,705648014	0,541605368
 2	151481	1718	0,887824422	0,689527736
 3	System created by 151778	1101	0,891739717	0,689321703
