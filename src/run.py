@@ -4,7 +4,7 @@ from tqdm import tqdm
 from RatingSystem import RatingSystem, RatingSystemCompetition
 from SampleSystems import NaiveRating, AverageMovieRating, GlobalAverageMovieRating, Cheater, AverageUserRating
 from system111333 import MySystem
-from StudentSystems import Sys151118, Sys151739, Sys151754, Sys151861, Sys151867, Sys151868, Sys151895, Sys152809, Sys151774, Sys151835
+from StudentSystems import Sys151118, Sys151739, Sys151754, Sys151861, Sys151867, Sys151868, Sys151895, Sys152809, Sys151774, Sys151835, Sys147715, Sys151061, Sys151129, Sys151481, Sys151504, Sys151561, Sys151756, Sys151778, Sys151833, Sys151850, Sys151851, Sys151885, Sys152040, Sys152043, Sys153029
 def main():
     #read the movie indices
     with open('../data/movie.csv', encoding='utf-8') as file:
@@ -40,9 +40,33 @@ def main():
     competition.register(Sys152809())
     competition.register(Sys151774())
     competition.register(Sys151835())
+    competition.register(Sys147715())
+    competition.register(Sys151061())
+    competition.register(Sys151129())
+    competition.register(Sys151481())
+    competition.register(Sys151504())
+    competition.register(Sys151561())
+    competition.register(Sys151756())
+    competition.register(Sys151778())
+    competition.register(Sys151833())
+    competition.register(Sys151850())
+    competition.register(Sys151851())
+    competition.register(Sys151885())
+    competition.register(Sys152040())
+    competition.register(Sys152043())
+    competition.register(Sys153029())
     
     competition.build_round_robin()
     #run the competition - it prints out the results
+    competition.compete()
+    competition.compete()
+    competition.compete()
+    competition.compete()
+    competition.compete()
+    competition.compete()
+    competition.compete()
+    competition.compete()
+    competition.compete()
     competition.compete()
     
 
