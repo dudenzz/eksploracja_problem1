@@ -29,11 +29,10 @@ def main():
     competition.register(AverageMovieRating())
     competition.register(GlobalAverageMovieRating())
     competition.register(Cheater())
-    competition.register(AverageUserRating())
-    #build the matchup table
+    competition.register(AverageUserRating())    
     competition.build_round_robin()
     #run the competition - it prints out the results
     competition.compete()
-       
+
 if __name__ == "__main__":
     main()

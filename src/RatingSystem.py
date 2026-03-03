@@ -134,7 +134,7 @@ class RatingSystemCompetition:
             Run the competition and print out the results based on the verbose parameter. Note, the only output is fed to the stdio, currently the system does not provide evaluation in any other form. 
         """
         self.total_scores = {}
-        for system in self.pairs:
+        for system in tqdm(self.pairs):
             self.total_scores[system] = 0
             if self.verbose >= 2: print(f'{system} analysis: ')
             for matchup in self.pairs[system]:
