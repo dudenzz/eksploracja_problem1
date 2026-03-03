@@ -3,7 +3,7 @@ from RatingLib import User, Movie
 from tqdm import tqdm
 from RatingSystem import RatingSystem, RatingSystemCompetition
 from SampleSystems import NaiveRating, AverageMovieRating, GlobalAverageMovieRating, Cheater, AverageUserRating
-from system111333 import MySystem
+from secret_system import MySystem as secret
 
 def main():
     #read the movie indices
@@ -24,7 +24,7 @@ def main():
     #create the competition
     competition = RatingSystemCompetition()
     #register systems
-    competition.register(MySystem())
+    competition.register(secret())
     competition.register(NaiveRating())
     competition.register(AverageMovieRating())
     competition.register(GlobalAverageMovieRating())
