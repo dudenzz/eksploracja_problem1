@@ -4,7 +4,10 @@ from RatingLib import Movie
 import test_users
 import numpy as np
 import copy
-test_users = test_users.test_users
+from collections import defaultdict
+
+test_pairs = test_users.test_pairs
+test_scores = test_users.test_scores
 
 class RatingSystem:
     """ 
@@ -15,15 +18,16 @@ class RatingSystem:
             Default system initializer - it loads up users and movie ratings into the self.user and self.movie_ratings indices, which are implemented as (dictionary). If you are willing to use the indices as ndarrays, please perform the conversion in the specific (non-abstract) system definition. 
             The indices are filled with use of User.index, which is a class parameter, and User.ratings, which is an object parameter. The initializer also makes use of the 'test_users.py' file, which should contain a single definition of a test_users array, which consists of user identifiers to be ignored by the system. Be ware, that those indices should be filled prior to initializing a new system
         """
-        self.users = {id : User.index[id] for id in User.index if id not in test_users}
-        self.movie_ratings = {}
-        for user in tqdm(self.users):
-            for movie in self.users[user].ratings:
-                if movie not in self.movie_ratings.keys():
-                    self.movie_ratings[movie] = [self.users[user].ratings[movie]]
-                else:
-                    self.movie_ratings[movie].append(self.users[user].ratings[movie])
-        
+        test_set = {tuple(pair) for pair in test_pairs}
+
+        self.users = User.index.copy() 
+        self.movie_ratings = defaultdict(list)
+
+        for user_id, user_obj in tqdm(self.users.items()):
+            for movie_id, rating in user_obj.ratings.items():
+                if (user_id, movie_id) in test_set:
+                    continue
+                self.movie_ratings[movie_id].append(rating)
     def rate(self, user : User, movie : Movie):
         """
             Altough we are not using abc in the implementation, this method is to be interpreted as an abstract method (or pure virtual if you come from the C++ community).
@@ -41,7 +45,7 @@ class RatingSystemCompetition:
     """
     def __init__(self, verbose : int = 2):
         """
-            The indices are filled with use of User.index, which is a class parameter. The initializer also makes use of the 'test_users.py' file, which should contain a single definition of a test_users array, which consists of user identifiers to be ignored by the system. Be ware, that those indices should be filled prior to initializing a new system.
+            The indices are filled with use of User.index, which is a class parameter. The initializer also makes use of the 'test_users.py' file, which should contain a single definition of a test_scores array, which consists of user,movie,score tuples to be ignored by the system. Be ware, that those indices should be filled prior to initializing a new system.
 
             The initializers implements object parameter verbose, which controls the output to the stdio of the manager object. 
             0 - print nothing
@@ -52,7 +56,8 @@ class RatingSystemCompetition:
 
         """
         self.registered_systems = []
-        self.users = {id : User.index[id] for id in User.index if id not in test_users}
+        self.users = {id : User.index[id] for id in User.index}
+        self.test_scores = test_scores
         self.verbose = verbose
         self.errors = {}
     def register(self, system : RatingSystem):
@@ -108,12 +113,9 @@ class RatingSystemCompetition:
         wins = 0
         loses = 0
         draws = 0
-        for user_id in users_ids:
-            user = self.users[user_id]
+        for (user_id,movie_id, true_rating) in test_scores:
             user_copy = copy.deepcopy(self.users[user_id])
-            movie_id = np.random.choice(np.array(list(user.ratings.keys())), size=1)[0]
             del user_copy.ratings[movie_id]
-            true_rating = self.users[user_id].ratings[movie_id]
             system_rating = system.rate(user_copy,movie_id)
             competitor_rating = competitor.rate(user_copy,movie_id)
             self.errors[str(system)].append(true_rating - system_rating)
@@ -148,10 +150,3 @@ class RatingSystemCompetition:
             for system in sorted(self.total_scores, key=self.total_scores.get, reverse=True):
                 print(f'{place}. {system}, {self.total_scores[system]} pkt, RMSE: {self.mse(str(system))}, MAE: {self.mae(str(system))}')
                 place += 1
-            
-        
-            
-            
-            
-            
-    
