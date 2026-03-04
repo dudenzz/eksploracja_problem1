@@ -17,7 +17,7 @@
  2. Utwórz roboczy branch
  3. W katalogu src/ znajdziesz plik system111333.py. Zmodyfikuj go tak, aby nazwa zawierała numer indeksu jednego z uczestników grupy projektowej. W treści tego pliku powinna znajdować się implementacja twojego systemu oceniającego.
  4. Rozwiąż zadanie
-    - Przygotuj zadania dotyczące tego problemu na tablicy Kanban
+    - Przygotuj pod-zadania dotyczące tego problemu na tablicy Kanban
     - Zaplanuj daty wykonania zadań
     - Przydziel zadania członkom zespołu
     - Zaplanuj dwie iteracje
