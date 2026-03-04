@@ -7,6 +7,7 @@ lab5/
 lab6/
 lab7/
 lab8/
+data/
 src/secret_system.py
 __pycache__/
 src/test_sampling.py
