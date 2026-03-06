@@ -1,4 +1,5 @@
 from RatingSystem import RatingSystem
+import test_users
 
 class MySystem(RatingSystem):
     def __init__(self):
