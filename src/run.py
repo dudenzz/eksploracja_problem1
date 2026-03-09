@@ -3,7 +3,7 @@ from RatingLib import User, Movie
 from tqdm import tqdm
 from RatingSystem import RatingSystem, RatingSystemCompetition
 from SampleSystems import NaiveRating, AverageMovieRating, GlobalAverageMovieRating, Cheater, AverageUserRating
-from system155198 import MySystem
+from system155198 import BiasRatingSystem
 # from secret_system import MySystem as secret
 
 def main():
@@ -31,7 +31,7 @@ def main():
     competition.register(GlobalAverageMovieRating())
     competition.register(Cheater())
     competition.register(AverageUserRating()) 
-    competition.register(MySystem())   
+    competition.register(BiasRatingSystem())   
     competition.build_round_robin()
     #run the competition - it prints out the results
     competition.compete()
