@@ -19,8 +19,10 @@ class Movie:
         self.name = name
         self.ratings = []
         self.genres = []
+        self.genome_scores = {}
         Movie.index[id] = self
         Movie.name_index[name] = self
+        
     def add_rating(self, rating):
         """
             This method adds a single numerical rating to a movie.
@@ -28,6 +30,15 @@ class Movie:
             :param rating: movie rating (numerical)
         """
         self.ratings.append(rating)
+        
+    def add_genome_score(self, tag_id, relevance):
+        """
+            This method adds a single genome score (tag relevance) to a movie.
+            
+            :param tag_id: tag identifier (numerical)
+            :param relevance: relevance score (numerical)
+        """
+        self.genome_scores[tag_id] = relevance
     
     
 class User:
@@ -59,5 +70,3 @@ class User:
         """
         str_bldr = f'{self.id}'
         return str_bldr
-
-        
