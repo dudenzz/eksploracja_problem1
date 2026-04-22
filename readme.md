@@ -31,5 +31,35 @@ Termin wykonania zadania: 31.03.2026
 Aby uruchomić konkurs należy w pierwszej kolejności uzupełnić dane modeli dostarczonych przez systemy. Skopiuj do swojej lokalnej kopii repozytorium modele umieszczone w tym katalogu:
 https://drive.google.com/drive/folders/1k6kbKGJ2jYi91T5Yy4MnEy7ijDDWNdx8?usp=drive_link
 
+1. Utwórz środowisko wirtualne 
+   ```python -m venv ven```
+2. Zainstaluj biblioteki w odpowiednich wersjach
+   ```pip install -r reqiurements.txt```
+3. Uruchom konkurs
+   ```python src/run.py```
 
+Domyślnie konkurs obejmuje 10 przebiegów dla wszystkich dostarczonych systemów. Jedno uruchomienie trwa bardzo długo (kilka godzin). Możesz zmniejszyć ten czas komentując rejestrację wybranych systemów.
 
+```
+    #print('registering System156962...')
+    #start = time()
+    #competition.register(System156962())
+    #end = time()
+    #systems.append('System156962')
+    #times.append(end - start)
+```
+
+Opcjonalnie możesz zmniejszyć liczbę iteracji.
+
+```
+   for i in range(10):
+        start = time()
+        print('--------------------------------------------------------')
+        print(f'Building round robin schedule: iteration {i+1}/10')
+        competition.build_round_robin()
+        #run the competition - it prints out the results
+        print(f'results after round robin {i+1}/10:')
+        competition.compete()
+        end = time()
+        print(f'Round robin {i+1} completed in {end - start:.2f} seconds')
+```
