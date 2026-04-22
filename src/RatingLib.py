@@ -7,7 +7,7 @@ class Movie:
     inner_index = {}
     reverse_inner_index = {}
     inner_index_gen = 0
-    def __init__(self, id, name):
+    def __init__(self, id, name, genres):
         """
             Initializer of the movie creates an empty object with a given ID and a name. The movie is indexed in index via index[id] = self and in name_index via name_index[name] = self. There is no reverse index.
             
@@ -19,6 +19,8 @@ class Movie:
         self.name = name
         self.ratings = []
         self.genres = []
+        self.genome_scores = {}
+        self.sorted_tags = []
         Movie.index[id] = self
         Movie.name_index[name] = self
     def add_rating(self, rating):
@@ -28,6 +30,19 @@ class Movie:
             :param rating: movie rating (numerical)
         """
         self.ratings.append(rating)
+    def add_genres(self, genre_list):
+        for genre in genre_list:
+            self.genres.append(genre)
+    def add_genome_score(self, tag_id, relevance):
+        """
+            This method adds a single genome score (tag relevance) to a movie.
+            
+            :param tag_id: tag identifier (numerical)
+            :param relevance: relevance score (numerical)
+        """
+        self.genome_scores[tag_id] = relevance
+    def sort_tags(self):
+        self.sorted_tags = sorted(self.genome_scores.keys(), key=lambda tag_id: self.genome_scores[tag_id], reverse=True)
     
     
 class User:
