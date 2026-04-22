@@ -26,3 +26,10 @@
 
 Termin wykonania zadania: 31.03.2026
 
+### Rozwiązania
+
+Aby uruchomić konkurs należy w pierwszej kolejności uzupełnić dane modeli dostarczonych przez systemy. Skopiuj do swojej lokalnej kopii repozytorium modele umieszczone w tym katalogu:
+https://drive.google.com/drive/folders/1k6kbKGJ2jYi91T5Yy4MnEy7ijDDWNdx8?usp=drive_link
+
+
+
