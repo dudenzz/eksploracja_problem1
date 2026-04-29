@@ -69,7 +69,7 @@ Opcjonalnie możesz zmniejszyć liczbę iteracji.
 
 Średnia wyznaczona na podstawie 10 przebiegów.
 
-| Lp. | System | Średnia punktacja | RMSE | MAE | :--- |
+| Lp. | System | Średnia punktacja | RMSE | MAE | Ocena |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | System 155294 and 155877 (with anti-cheat filtering) | 1520 | 0.819553 | 0.56 | 25 pkt |
 | 2 | System created by 155898 and 156021 and 155934 | 928 | 0.834166 | 0.621667 | 22.5 pkt |
